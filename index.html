@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kassensystem</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1><img src="DBYCKASSE/IMG_9432.PNG" width="80" height="80">  Deutsch-Britischer Yacht Club</h1>
+  
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="mittag">Mittagskarte</button>
+    <button class="tab-btn active" data-tab="abend">Abendskarte</button>
+    <button class="tab-btn" data-tab="bar">Bar Menü</button>
+    <button class="tab-btn" data-tab="heiss">Heiße Getränke</button>
+    <button class="tab-btn" data-tab="bier">Bier</button>
+    <button class="tab-btn" data-tab="nobier">Alkoholfreies Bier</button>
+    <button class="tab-btn" data-tab="wino">Wein</button>
+    <button class="tab-btn" data-tab="drinks">Longdrinks</button>
+    <button class="tab-btn" data-tab="spirit">Spirituosen</button>
+    <button class="tab-btn" data-tab="soda">Soda Gläser</button>
+    <button class="tab-btn" data-tab="saft">Säfte</button>
+    <button class="tab-btn" data-tab="flasche">Flaschen</button>
+    <button class="tab-btn" data-tab="dessert">Desserts</button>
+    <button class="tab-btn" data-tab="spec">Specials</button>
+    <button class="tab-btn" data-tab="kids">Kinderkarte</button>
+  </div>
+  <label>
+    <input type="checkbox"  id="isMember">
+    Ich bin Member (10 % Rabatt)
+  </label>
+  <div class="tab-content active" id="mittag">
+    <button onclick="addToOrder('Grilled Romana Salat', 13.00)">Grilled Romana Salat - 13,00€</button>
+    <button onclick="addToOrder('Chicken & Bakon', 13.00)">Chicken & Bakon - 13,00€</button>
+    <button onclick="addToOrder('Fresh & Cream - Spitzkohl Salat', 13.00)">Fresh & Cream - Spitzkohl Salat - 13,00€</button>
+    <button onclick="addToOrder('Grill Spieße', 13.00)">Grill Spieße - 13,00€</button>
+    <button onclick="addToOrder('Ofen Kartoffel', 13.00)">Ofen Kartoffel - 13,00€</button>
+    <button onclick="addToOrder('Guinness Toastie', 13.00)">Guinness Toastie - 13,00€</button>
+    <button onclick="addToOrder('Backed Eggs - Gebackene Eier', 13.00)">Backed Eggs - Gebackene Eier - 13,00€</button>
+  </div>
+
+  <div class="tab-content" id="abend">
+    <button onclick="addToOrder('Gegrillte Schwarzwurzel', 8.50)">Gegrillte Schwarzwurzel - 8,50€</button>
+    <button onclick="addToOrder('Forelle Rillette', 9.50)">Forelle Rillette - 9,50€</button>
+    <button onclick="addToOrder('Pork Scruff', 22.00)">Pork Scruff - 22,00€</button>
+  </div>
+
+  <div class="tab-content" id="bar">
+    <button onclick="addToOrder('x Hühnerleber Creme', 8.00)">Hühnerleber Creme - 8,00€</button>
+    <button onclick="addToOrder('x Beilagen', 5.00)">Beilagen - 5,00€</button>
+    <button onclick="addToOrder('x Fish & Chips', 14.00)">Fish & Chips - 14,00€</button>
+    <button onclick="addToOrder('x Clubhouse Linguine', 14.00)">Clubhouse Linguine - 14,00€</button>
+    <button onclick="addToOrder('x Potato & Stilton Pie', 12.00)">Potato & Stilton Pie - 12,00€</button>
+    <button onclick="addToOrder('x Steak & Ale Pie', 12.00)">Steak & Ale Pie - 12,00€</button>
+    <button onclick="addToOrder('x Waldpilz Toast', 8.50)">Waldpilz Toast - 8,50€</button>
+    <button onclick="addToOrder('x Fischstäbchen', 10.00)">Fischstäbchen - 10,00€</button>
+    <button onclick="addToOrder('x 1/2 Pint of Prawns', 10.00)">1/2 Pint of Prawns - 10,00€</button>
+    <button onclick="addToOrder('x Mac & Cheese', 7.50)">Mac & Cheese - 7,50€</button>
+    <button onclick="addToOrder('x Haggis Rolls', 8.00)">Haggis Rolls - 8,00€</button>
+  </div>
+
+  <div class="tab-content" id="heiss">
+    <button onclick="addToOrder('x Heiße Schokolade', 3.50)">Heiße Schokolade - 3,50€</button>
+    <button onclick="addToOrder('x Tasse Tee', 2.40)">Tasse Tee - 2,40€</button>
+    <button onclick="addToOrder('x Eiskaffe Eiswürfel', 3.50)">Eiskaffe (Eiswürfel) - 3,50€</button>
+    <button onclick="addToOrder('x Eiskaffe Vanille', 4.50)">Eiskaffe (Vanille) - 4,50€</button>
+    <button onclick="addToOrder('x Cappuccino', 4.00)">Cappuccino - 4,00€</button>
+    <button onclick="addToOrder('x Tasse Kaffee', 3.00)">Tasse Kaffee - 3,00€</button>
+    <button onclick="addToOrder('x Espresso', 2.00)">Espresso - 2,00€</button>
+    <button onclick="addToOrder('x Latte Macchiato', 4.50)">Latte Macchiato - 4,50€</button>
+  </div>
+
+  <div class="tab-content" id="bier">
+    <button onclick="addToOrder('x Guinness 0,5', 7.50)">Guinness 0,5 - 7,50€</button>
+    <button onclick="addToOrder('x Guinness 0,3', 4.50)">Guinness 0,3 - 4,50€</button>
+    <button onclick="addToOrder('x Pills 0,5', 4.00)">Pills 0,5 - 4,00€</button>
+    <button onclick="addToOrder('x Pills 0,3', 2.40)">Pills 0,3 - 2,40€</button>
+    <button onclick="addToOrder('x Helles 0,5', 5.00)">Pills 0,5 - 5,00€</button>
+    <button onclick="addToOrder('x Helles 0,3', 3.00)">Pills 0,3 - 3,00€</button>
+    <button onclick="addToOrder('x Three Sheets to the Wind 0,5', 5.50)">Three Sheets to the Wind 0,5 - 5,50€</button>
+    <button onclick="addToOrder('x Three Sheets to the Wind 0,3', 3.30)">Three Sheets to the Wind 0,3 - 3,30€</button>
+    <button onclick="addToOrder('x Alster/Radlers 0,5', 4.00)">Alster/Radlers 0,5 - 4,00€</button>
+    <button onclick="addToOrder('x Alster/Radlers 0,3', 2.40)">Alster/Radlers 0,3 - 2,40€</button>
+
+  </div>
+
+  <div class="tab-content" id="nobier">
+    <button onclick="addToOrder('Stördebecker Alkoholfrei 0,5', 5.00)">Stördebecker Alkoholfrei 0,5 - 5,00€</button>
+    <button onclick="addToOrder('Helles Alkoholfrei 0,5', 5.00)">Helles Alkoholfrei 0,5 - 5,00€</button>
+    <button onclick="addToOrder('Weizen Alkoholfrei 0,5', 5.00)">Weizen Alkoholfrei 0,5 - 5,00€</button>
+  </div>
+
+  <div class="tab-content" id="wino">
+    <button onclick="addToOrder('Cava 0,75', 26.50)">Cava 0,75 - 26,50€</button>
+    <button onclick="addToOrder('Cava 0,2', 11.00)">Cava 0,2 - 11,00€</button>
+    <button onclick="addToOrder('Cava 0,1', 5.50)">Cava 0,1 - 5,50€</button>
+    <button onclick="addToOrder('Rosé 0,75', 24.80)">Rosé 0,75 - 24,80€</button>
+    <button onclick="addToOrder('Rosé 0,2', 7.00)">Rosé 0,2 - 7,00€</button>
+    <button onclick="addToOrder('Rosé 0,1', 3.50)">Rosé 0,1 - 3,50€</button>
+    <button onclick="addToOrder('Graubugunder 0,75', 25.80)">Graubugunder 0,75 - 25,80€</button>
+    <button onclick="addToOrder('Graubugunder 0,2', 7.50)">Graubugunder 0,2 - 7,50€</button>
+    <button onclick="addToOrder('Graubugunder 0,1', 3.75)">Graubugunder 0,1 - 3,75€</button>
+    <button onclick="addToOrder('Cotes du Rhone 0,75', 25.80)">Cotes du Rhone 0,75 - 25,80€</button>
+    <button onclick="addToOrder('Cotes du Rhone 0,2', 7.50)">Cotes du Rhone 0,2 - 7,50€</button>
+    <button onclick="addToOrder('Cotes du Rhone 0,1', 3.75)">Cotes du Rhone 0,1 - 3,75€</button>
+  </div>
+
+  <div class="tab-content" id="drinks">
+    <button onclick="addToOrder('Longdrink 0,4', 7.50)">Longdrink 0,4 - 7,50€</button>
+    <button onclick="addToOrder('Vodka & Lemon', 7.50)">Vodka & Lemon - 7,50€</button>
+    <button onclick="addToOrder('Campari Orange', 7.50)">Campari Orange - 7,50€</button>
+    <button onclick="addToOrder('Aperol Spritz', 8.90)">Aperol Spritz - 8,90€</button>
+    <button onclick="addToOrder('Cuba Libre Gold (Mate)', 7.50)">Cuba Libre Gold (Mate) - 7,50€</button>
+    <button onclick="addToOrder('Cuba Libre', 7.50)">Cuba Libre - 7,50€</button>
+    <button onclick="addToOrder('Gin & Tonic', 7.50)">Gin & Tonic - 7,50€</button>
+  </div>
+
+  <div class="tab-content" id="spirit">
+    <button onclick="addToOrder('Pampero 2cl', 3.00)">Pampero 2cl - 3,00€</button>
+    <button onclick="addToOrder('Williamsbirne 2cl', 2.50)">Williamsbirne 2cl - 2,50€</button>
+    <button onclick="addToOrder('Auchentoshan Whisky 4cl', 14.00)">Auchentoshan Whisky 4cl - 14,00€</button>
+    <button onclick="addToOrder('Auchentoshan Whisky 2cl', 7.00)">Auchentoshan Whisky 2cl - 7,00€</button>
+    <button onclick="addToOrder('Talisker Skye Whisky 4cl', 14.00)">Talisker Skye Whisky 4cl - 14,00€</button>
+    <button onclick="addToOrder('Talisker Skye Whisky 2cl', 7.00)">Talisker Skye Whisky 2cl - 7,00€</button>
+    <button onclick="addToOrder('Tamnavulin Whisky 4cl', 14.00)">Tamnavulin Whisky 4cl - 14,00€</button>
+    <button onclick="addToOrder('Tamnavulin Whisky 2cl', 7.00)">Tamnavulin Whisky 2cl - 7,00€</button>
+    <button onclick="addToOrder('Danish Navy Rum 4cl', 13.00)">Danish Navy Rum 4cl - 13,00€</button>
+    <button onclick="addToOrder('Danish Navy Rum 2cl', 6.50)">Danish Navy Rum 2cl - 6,50€</button>
+    <button onclick="addToOrder('Jägermeister 2cl', 2.00)">Jägermeister 2cl - 2,00€</button>
+    <button onclick="addToOrder('Obstler 2cl', 2.00)">Obstler 2cl - 2,00€</button>
+  </div>
+
+  <div class="tab-content" id="soda">
+    <button onclick="addToOrder('x Fanta 0,4', 4.60)">Fanta 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Fanta 0,2', 2.30)">Fanta 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Coke 0,4', 4.60)">Coke 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Coke 0,2', 2.30)">Coke 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Sprite 0,4', 4.60)">Sprite 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Sprite 0,2', 2.30)">Sprite 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Spezi 0,4', 4.60)">Spezi 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Spezi 0,2', 2.30)">Spezi 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Hauslimo 0,4', 4.60)">Hauslimo 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Hauslimo 0,2', 2.30)">Hauslimo 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Sprudel 0,4', 3.60)">Sprudel 0,4 - 3,60€</button>
+    <button onclick="addToOrder('x Sprudel 0,2', 1.80)">Sprudel 0,2 - 1,80€</button>
+  </div>
+
+  <div class="tab-content" id="saft">
+    <button onclick="addToOrder('x Saft Schorle 0,4', 4.60)">Saft Schorle 0,4 - 4,60€</button>
+    <button onclick="addToOrder('x Saft Schorle 0,2', 2.30)">Saft Schorle 0,2 - 2,30€</button>
+    <button onclick="addToOrder('x Bauer Maracujasaft 0,4', 5.00)">Bauer Maracujasaft 0,4 - 5,00€</button>
+    <button onclick="addToOrder('x Bauer Maracujasaft 0,2', 2.50)">Bauer Maracujasaft 0,2 - 2,50€</button>
+    <button onclick="addToOrder('x Bauer Apfelsaft 0,4', 5.00)">Bauer Apfelsaft 0,4 - 5,00€</button>
+    <button onclick="addToOrder('x Bauer Apfelsaft 0,2', 2.50)">Bauer Apfelsaft 0,2 - 2,50€</button>
+    <button onclick="addToOrder('x Bauer Orangensaft 0,4', 5.00)">Bauer Orangensaft 0,4 - 5,00€</button>
+    <button onclick="addToOrder('x Bauer Orangensaft 0,2', 2.50)">Bauer Orangensaft 0,2 - 2,50€</button>
+    <button onclick="addToOrder('x Bauer Rhababer 0,4', 5.00)">Bauer Rhababer 0,4 - 5,00€</button>
+    <button onclick="addToOrder('x Bauer Rhababer 0,2', 2.50)">Bauer Rhababer 0,2 - 2,50€</button>
+  </div>
+
+  <div class="tab-content" id="flasche">
+    <button onclick="addToOrder('Coke Flasche 0,33', 3.00)">Coke Flasche 0,33 - 3,00€</button>
+    <button onclick="addToOrder('Coke Zero 0,33', 3.00)">Coke Zero 0,33 - 3,00€</button>
+    <button onclick="addToOrder('Gerolsteiner Sprudel 0,75', 5.00)">Gerolsteiner Sprudel 0,75 - 5,00€</button>
+    <button onclick="addToOrder('Gerolsteiner Natur 0,75', 5.00)">Gerolsteiner Natur 0,75 - 5,00€</button>
+    <button onclick="addToOrder('Club Mate 0,5', 3.50)">Club Mate 0,5 - 3,50€</button>
+    <button onclick="addToOrder('Tomatensaft 0,2', 3.20)">Tomatensaft 0,2 - 3,20€</button>
+    <button onclick="addToOrder('Thomas Henry Tonic 0,2', 3.50)">Thomas Henry Tonic 0,2 - 3,50€</button>
+    <button onclick="addToOrder('Thomas Henry Spicy 0,2', 3.50)">Thomas Henry Spicy 0,2 - 3,50€</button>
+    <button onclick="addToOrder('Gerolsteiner Medium 0,25', 2.50)">Gerolsteiner Medium - 2,50€</button>
+  </div>
+
+  <div class="tab-content" id="dessert">
+    <button onclick="addToOrder('Cranachan', 6.50)">Cranachan - 6,50€</button>
+    <button onclick="addToOrder('Scone', 6.50)">Scone - 6,50€</button>
+    <button onclick="addToOrder('Chocolate Fondant', 6.50)">Chocolate Fondant - 6,50€</button>
+    <button onclick="addToOrder('Plum Crumble', 6.50)">Plum Crumble - 6,50€</button>
+    <button onclick="addToOrder('Kugel Eis', 2.50)">Kugel Eis - 2,50€</button>
+  </div>
+
+  <div class="tab-content" id="spec">
+    <button onclick="addToOrder('Frühstücksbuffet', 14.50)">Frühstücksbuffet - 14,50€</button>
+    <button onclick="addToOrder('Clubhouse Linguine + Garneles', 18.00)"> - 18,00€</button>
+    <button onclick="addToOrder('Clubhouse Linguine', 12.60)">Clubhouse Linguine - 12,60€</button>
+    <button onclick="addToOrder('Grill Gemüse Sandwich', 12.00)">Grill Gemüse Sandwich - 12,00€</button>
+    <button onclick="addToOrder('Meatball Marinara', 12.00)">Meatball Marinara - 12,00€</button>
+    <button onclick="addToOrder('Potato & Stilton Pie', 10.80)">Potato & Stilton Pie - 10,80€</button>
+    <button onclick="addToOrder('Steak & Ale Pie', 10.80)">Steak & Ale Pie - 10,80€</button>
+    <button onclick="addToOrder('Fish & Chips', 12.60)">Fish & Chips - 12,60€</button>
+  </div>
+
+  <div class="tab-content" id="kids">
+    <button onclick="addToOrder('Kids Pasta mit Pesto', 6.00)">Kids Pasta mit Pesto - 6,00€</button>
+    <button onclick="addToOrder('Kids Pasta mit Tomatensoße', 6.00)">Kids Pasta mit Tomatensoße - 6,00€</button>
+    <button onclick="addToOrder('Kids Pasta mit Käsesoße', 6.00)">Kids Pasta mit Käsesoße - 6,00€</button>
+    <button onclick="addToOrder('Kids Fish & Chips', 7.00)">Kids Fish & Chips - 7,00€</button>
+  </div>
+
+  <h1>Bestellung</h1>
+  <ul id="orderList"></ul>
+  <p><strong>Gesamt:</strong> <span id="totalPrice">0.00</span> €</p>
+
+<button id="payButton">Bezahlen</button>
+<hr>
+<button onclick="showHistory()">Bestellverlauf anzeigen</button>
+<button onclick="exportToCSV()">Exportieren als Excel</button>
+<button onclick="clearHistory()">Bestellverlauf löschen</button>
+  <script src="script.js"></script>
+</body>
+</html>
