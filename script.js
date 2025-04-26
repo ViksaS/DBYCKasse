@@ -3,25 +3,25 @@
     const totalPriceEl = document.getElementById('totalPrice');
     const payButton = document.getElementById('payButton');
 
-    function addToOrder(name, price) {
-      const isMember = document.getElementById('isMember').checked;
-      let finalPrice = price;
 
-      if (isMember && (name.includes("Fass") || name.includes("x") )) {
-        finalPrice = price * 0.9
-        ;
-      }
+function addToOrder(name, price) {
+  const newOrderItem = {
+    name: name,
+    price: price,
+    qty: 1
+  };
 
-      const existing = order.find(item => item.name === name);
-      if (existing) {
-        existing.qty++;
-      } else {
-        order.push({ name, price: finalPrice, qty: 1 });
-      }
+  // Überprüfen, ob das Produkt bereits im Warenkorb ist
+  const existingItem = order.find(item => item.name === name);
+  
+  if (existingItem) {
+    existingItem.qty++; // Falls ja, Menge erhöhen
+  } else {
+    order.push(newOrderItem); // Ansonsten neues Produkt hinzufügen
+  }
 
-      saveOrder();
-      renderOrder();
-    }
+  renderOrder(); // Bestellliste neu rendern
+}
 
     function renderOrder() {
       orderList.innerHTML = '';
@@ -75,9 +75,65 @@
         renderOrder();
       }
     }
+    let cashInput = '';
+//Bezahlen funktion
+payButton.addEventListener('click', () => {
+  if (order.length === 0) {
+    alert("Keine Artikel im Warenkorb.");
+    return;
+  }
+  cashInput = '';
+  updateCashDisplay();
+  document.getElementById('payModal').style.display = 'flex';
+});
 
-    payButton.addEventListener('click', () => {
-      if (order.length === 0) {
+function addDigit(digit) {
+  if (digit === ',' && cashInput.includes(',')) return;
+  cashInput += digit;
+  updateCashDisplay();
+}
+
+function deleteLast() {
+  cashInput = cashInput.slice(0, -1);
+  updateCashDisplay();
+}
+
+function quickAmount(amount) {
+  cashInput = amount.toString().replace('.', ',');
+  updateCashDisplay();
+}
+
+function updateCashDisplay() {
+  document.getElementById('cashDisplay').textContent = cashInput || '0';
+}
+
+function closeModal() {
+  document.getElementById('payModal').style.display = 'none';
+  cashInput = '';
+  updateCashDisplay();
+}
+
+function confirmPayment() {
+  const cash = parseFloat(cashInput.replace(',', '.'));
+  const total = order.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+  if (isNaN(cash) || cash < total) {
+    alert(`Bitte gültigen Betrag eingeben (mind. ${total.toFixed(2)} €)`);
+    return;
+  }
+
+  const wechselgeld = cash - total;
+  alert(`Gegeben: ${cash.toFixed(2)} €\nWechselgeld: ${wechselgeld.toFixed(2)} €\n\nVielen Dank!`);
+
+  saveToDatabase(order);
+  order.length = 0;
+  renderOrder();
+  closeModal();
+}
+    //payButton.addEventListener('click', () => {
+      
+
+      /*if (order.length === 0) {
         alert('Keine Bestellung vorhanden!');
         return;
       }
@@ -100,8 +156,9 @@
       order.length = 0;
       saveOrder();
       saveToDatabase(order);
-      renderOrder();
-    });
+      renderOrder(); 
+    });*/
+
 
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -169,4 +226,55 @@
           alert("Bestellverlauf wurde gelöscht.");
         }
       }
-    loadOrder();
+
+      //presi selber reinschreiben funktion
+      let customInput = '';
+
+function openCustomPriceModal() {
+  customInput = '';
+  updateCustomPriceDisplay();
+  document.getElementById('customPriceModal').style.display = 'flex';
+}
+
+function closeCustomModal() {
+  document.getElementById('customPriceModal').style.display = 'none';
+  customInput = '';
+  updateCustomPriceDisplay();
+}
+
+function addCustomDigit(digit) {
+  if (digit === ',' && customInput.includes(',')) return;
+  customInput += digit;
+  updateCustomPriceDisplay();
+}
+
+function deleteCustomDigit() {
+  customInput = customInput.slice(0, -1);
+  updateCustomPriceDisplay();
+}
+
+function updateCustomPriceDisplay() {
+  document.getElementById('customPriceDisplay').textContent = customInput || '0';
+}
+
+function confirmCustomItem() {
+  const price = parseFloat(customInput.replace(',', '.'));
+  if (isNaN(price) || price <= 0) {
+    alert("Ungültiger Preis.");
+    return;
+  }
+
+  order.push({ name: "Unbekannt", price, qty: 1 });
+  renderOrder();
+  closeCustomModal();
+}
+
+document.querySelectorAll('.addtoorder').forEach(button => {
+  button.addEventListener('click', function() {
+    const productName = this.dataset.name;
+    const productPrice = parseFloat(this.dataset.price);
+    
+    addToOrder(productName, productPrice); // Aufruf der Funktion zum Hinzufügen der Bestellung
+  });
+});
+  loadOrder();
