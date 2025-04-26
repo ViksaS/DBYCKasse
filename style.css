@@ -67,3 +67,112 @@ p {
     label {
         font-size: 20px;
     }
+    .keypad-btn {
+      font-size: 28px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    .keypad-btn:active {
+      background-color: #ddd;
+    }
+  
+    .quick-btn {
+      flex: 1;
+      font-size: 20px;
+      padding: 15px;
+      background-color: #d1ecf1;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  
+    .quick-btn:active {
+      background-color: #bfe2e8;
+    }
+  
+    .action-btn {
+      flex: 1;
+      font-size: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  
+    .action-btn.confirm {
+      background-color: #28a745;
+      color: white;
+    }
+  
+    .action-btn.confirm:active {
+      background-color: #218838;
+    }
+  
+    .action-btn.cancel {
+      background-color: #dc3545;
+      color: white;
+    }
+  
+    .action-btn.cancel:active {
+      background-color: #c82333;
+    }
+
+    #orderHistoryContainer {
+      max-height: 300px;  /* Höhe begrenzen */
+      overflow-y: auto;   /* vertikales Scrollen aktivieren */
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    
+    #orderHistoryContainer::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    #orderHistoryContainer::-webkit-scrollbar-thumb {
+      background-color: #bbb;
+      border-radius: 4px;
+    }
+
+    .member-check {
+      display: flex;
+      align-items: center;
+      font-size: 26px; /* noch größerer Text */
+      gap: 14px;
+      margin: 20px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    .member-check input[type="checkbox"] {
+      width: 34px;
+      height: 34px;
+      accent-color: #28a745;
+      cursor: pointer;
+    }
+    /* Button Hover-Effekt */
+button:hover {
+  transform: scale(1.05); /* Button wird leicht vergrößert */
+  transition: transform 0.2s ease-in-out; /* Sanfte Übergangszeit */
+}
+
+/* Button Klick-Effekt */
+button:active {
+  transform: scale(0.95); /* Button wird kleiner, als ob man drauf drückt */
+  transition: transform 0.1s ease-in-out;
+}
+
+/* Bestell-Button Animation */
+button.action-btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.action-btn:hover {
+  background-color: #0066cc;
+  transform: translateY(-5px); /* Leicht anheben */
+}
