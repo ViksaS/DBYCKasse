@@ -19,9 +19,6 @@
     <button class="tab-btn" data-tab="saft">Säfte</button>
     <button class="tab-btn" data-tab="heiss">Heiße Getränke</button>
     <button class="tab-btn" data-tab="bar">Bar Menü</button>
-    <button class="tab-btn active" data-tab="mittag">Mittagskarte</button>
-    <button class="tab-btn active" data-tab="abend">Abendskarte</button>
-    <button class="tab-btn" style="background-color:yellow;" data-tab="sunday">Sonntag</button>
     <button class="tab-btn" data-tab="dessert">Desserts</button>
 
     <button class="tab-btn" data-tab="spec">Specials</button>
@@ -34,19 +31,9 @@
     <input type="checkbox" id="memberCheckbox">
     <span>Ich bin Member</span>
   </label>
-  <div class="tab-content active" id="mittag">
-    <button onclick="addToOrder('Grilled Romana Salat', 13.00)">Grilled Romana Salat - 13,00€</button>
-    <button onclick="addToOrder('Chicken & Bakon', 13.00)">Chicken & Bakon - 13,00€</button>
-    <button onclick="addToOrder('Fresh & Cream - Spitzkohl Salat', 13.00)">Fresh & Cream - Spitzkohl Salat - 13,00€</button>
-    <button onclick="addToOrder('Grill Spieße', 13.00)">Grill Spieße - 13,00€</button>
-    <button onclick="addToOrder('Guinness Toastie', 13.00)">Guinness Toastie - 13,00€</button>
-  </div>
+ 
 
-  <div class="tab-content" id="abend">
-    <button onclick="addToOrder('Gegrillte Schwarzwurzel', 8.50)">Gegrillte Schwarzwurzel - 8,50€</button>
-    <button onclick="addToOrder('Forelle Rillette', 9.50)">Forelle Rillette - 9,50€</button>
-    <button onclick="addToOrder('Pork Scruff', 22.00)">Pork Scruff - 22,00€</button>
-  </div>
+  
 
   <div class="tab-content" id="bar">
     <button onclick="addToOrder('x Beilagen', 5.00)">Beilagen - 5,00€</button>
@@ -203,16 +190,7 @@
     <button onclick="addToOrder('Kids Fish & Chips', 7.00)">Kids Fish & Chips - 7,00€</button>
   </div>
   
-  <div class="tab-content" id="sunday">
-   
-    <button onclick="addToOrder('Sunday Roast', 20.00)">Sunday Roast - 20,00€</button>
-    <button onclick="addToOrder('x Fish & Chips', 14.00)">Fish & Chips - 14,00€</button>
-    <button onclick="addToOrder('Gegrillte Schwarzwurzel', 8.00)">Gegrillte Schwarzwurzel - 8,00€</button>
-    <button onclick="addToOrder('Forelle Rillete', 8.00)">Forelle Rillete - 8,00€</button>
-    <button onclick="addToOrder('x Haggis Rolls', 8.00)">Haggis Rolls - 8,00€</button>
-    <button onclick="addToOrder('Cranachan', 6.50)">Cranachan - 6,50€</button>
-    <button onclick="addToOrder('Chocolate Fondant', 6.50)">Chocolate Fondant - 6,50€</button>
-  </div>
+ 
 
   <h1>Bestellung</h1>
   <ul id="orderList"></ul>
